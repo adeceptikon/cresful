@@ -5,7 +5,9 @@
     </div>
 
     <div  >
-    <input id="search" type="search" name="search_query" /><button>खोजो</button>        
+        <form method="post" action="./index.php">
+             <input id="search" type="search" name="search_query" /><button type="submit" name="search_query">खोजो</button>        
+        </form>
     </div>
 <div id="account" >
     <a href="./index.php">मेन पेज</a>&nbsp;

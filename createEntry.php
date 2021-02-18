@@ -31,7 +31,11 @@
 <?php include_once("./top.php")?>
 
 <?php if(TRUE) {
-$form = '<form method="POST" action="processEntry.php">
+    if(isset($_SESSION['username']) ){
+        $usr = $_SESSION['username'];
+    }
+    else $usr = "";
+echo  '<form method="POST" action="processEntry.php">
     <h2>यहां सवाल  और जवाब दोनो एंट्री कीजिये</h2>
 
     <label for="question">सवाल (question) *</label><br />
@@ -50,7 +54,7 @@ $form = '<form method="POST" action="processEntry.php">
     <textarea placeholder="जवाब" name="answer" id="answer"></textarea><br /><br />
 
     <label for="user">User * </label><br />
-    <input placeholder="user" name="user"  /><br /><br />
+    <input placeholder="user" name="user"  value="'.$usr.'" /><br /><br />
 
     <label for="location">पता * </label><br />
     <input placeholder="user" name="location"  /><br /><br />
@@ -62,7 +66,6 @@ $form = '<form method="POST" action="processEntry.php">
 
 <hr />';
 
-echo $form ;
 }
     else echo 'please login with a username first';
 ?>

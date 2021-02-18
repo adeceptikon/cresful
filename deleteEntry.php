@@ -13,7 +13,9 @@
 
 <body>
 <?php include_once("./top.php");
-    $filename = $_GET['q'];
+    $received_file_index = $_GET['q'];
+    // echo $received_file_index;
+    $filename = $_SESSION['file'][$received_file_index];
     if(unlink($filename)){ //file delete karne ke liye
         echo "<p> एंट्री को हटा दिया गया है ।</p>";
     }

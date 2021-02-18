@@ -35,7 +35,8 @@
 <body>
 
 <?php include_once("./top.php");
-    $filename = $_GET['q'];
+    $received_file_index = $_GET['q']; //dangerous
+    $filename = $_SESSION['file'][$received_file_index];
     // echo $filename;
     $f = simplexml_load_file( $filename);
     $question  = $f->question;
@@ -50,7 +51,7 @@
 
     <label for="question">सवाल (question) *</label><br />
     <textarea type="text" name="question"  id="question"><?php echo $question; ?></textarea><br /><br />
-    <?php echo "<a href='deleteEntry.php?q=$filename'><button>डिलीट</button></a><br /><br />" ?>
+    <?php echo "<a href='deleteEntry.php?q=$received_file_index'>डिलीट</a><br /><br />" ?>
 
     <label for="context">विवरण (context) </label><br />
     <input type="text" name="context" value="<?php echo $context; ?>" /><br /><br />
@@ -64,7 +65,7 @@
     <textarea value="जवाब" name="answer" id="answer"><?php echo $answer; ?></textarea><br /><br />
 
     <label for="user">User * </label><br />
-    <input  name="user"  value="<?php echo $_SESSION['username']; ?>" /><br /><br />
+    <input  name="user"  value="<?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?>" /><br /><br />
 
     <label for="location">पता * </label><br />
     <input  name="location" value="<?php echo $location; ?>" /><br /><br />

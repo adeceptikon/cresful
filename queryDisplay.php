@@ -18,7 +18,8 @@
 <body>
 <?php include_once("./top.php") ; ?>
 <?php
-    $filename =  $_GET['q'] ;
+    $received_file_index =  $_GET['q'] ;
+    $filename = $_SESSION['file'][$received_file_index];
    $f = simplexml_load_file( $filename);
 
    $question = $f->question;
@@ -30,7 +31,7 @@
    
 echo "<h1>$question</h1>
      <div id='article_data'>$date &nbsp; &nbsp;$user &nbsp; &nbsp; $location </div>
-     <a href='editEntry.php?q=$filename'><button>EDIT /IMPROVE</button></a>
+     <a href='editEntry.php?q=$received_file_index'><button>EDIT /IMPROVE</button></a>
     <div>
         <p>$answer</p>
     </div>";
