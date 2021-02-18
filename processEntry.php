@@ -33,7 +33,7 @@ if(isset($_POST['submit'])) {
 
         }
         $xml -> save("$filename.xml");
-        echo "<h3>फाइल $filename.xml मे एंट्री हो गया </h3>";
+        echo "<h3>फाइल मे एंट्री हो गया </h3>";
     }
     echo "<a href='createEntry.php'>एक और सवाल डालें </a><br />";
 
