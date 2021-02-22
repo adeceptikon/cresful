@@ -1,45 +1,63 @@
-<div id="top" >
-    <div >
-<a href="./index.php"><h2>लूपर.in</h2></a>
-<!-- <p> लूपर में आपका स्वागत है । </p> -->
-    </div>
+<div class="row" >
+	<div id="top" class="col">
+		<a href="./index.php"><h2>लूपर.in</h2></a>
+		<!-- <p> लूपर में आपका स्वागत है । </p> -->
+	</div>
 
-    <div  >
-        <form method="post" action="./index.php">
-             <input id="search" type="search" name="search_query" /><button type="submit" name="search_query">खोजो</button>        
-        </form>
-    </div>
-<div id="account" >
-    <a href="./index.php">मेन पेज</a>&nbsp;
-<a href="createEntry.php"><b style="font-size: 1.5em;">नया सवाल+</b> </a>&nbsp;
-    <a href="request.php">रिक़ुएस्ट डालें</a>&nbsp;
-    <a href="offers.php">ऑफर</a>&nbsp;
+
+	<div class="col" id="searchBar" >
+		<form method="GET" action="./index.php">
+			 <input id="search" type="search" name="search_q" />
+			 <button type="submit" name="search_button">खोजो</button>        
+		</form>
+	</div>
+</div>
+	
+	
+<div id="account" class="row">
+	<div class="col" >
+
+		<a href="./index.php">मेन पेज</a>&nbsp;
+		<a href="createEntry.php"><b style="font-size: 1.5em;">नया सवाल+</b> </a>&nbsp;
+		<a href="request.php">रिक़ुएस्ट</a>&nbsp;
+		<a href="offers.php">ऑफर</a>&nbsp;
+	</div>
+
     
+<div class="col" >
 
     <?php 
-    if(isset($_POST['submitUsername']) && !empty($_POST['username']) ) { 
-        $_SESSION['username'] = $_POST['username'];
-        //time log karne ke liye 
-        if(is_dir("./users/".$_SESSION['username'])){
-            $f = fopen("./users/".$_SESSION['username'].'/'.$_SESSION['username'].".log"  , "a+");
-                $log = 'Access_time : '.date("d-m-Y" , time() ).',';
-                fwrite($f , $log);
-                fclose($f);
-        }
-        else {
-            //user nahi hai to banane ke liye 
-            mkdir("./users/".$_SESSION['username']);
-            $f = fopen("./users/".$_SESSION['username'].'/'.$_SESSION['username'].".log" , "w+");
-                $log = 'Access_time : '.date("d-m-Y", time() ).',';
-                fwrite($f , $log);
-                fclose($f);
-        }
-    }
+//agar login info daala hai to
+if(isset($_POST['submitUsername']) ) {
+	
+		if(!empty($_POST['username']) ) { 
+			$_SESSION['username'] = $_POST['username'];
+			//agar pehle se hi user hai to Access time record kar lo	
+			if(is_dir("./users/".$_SESSION['username'])){
+				$f = fopen("./users/".$_SESSION['username'].'/'.$_SESSION['username'].".log"  , "a+");
+					$log = 'Access_time : '.date("d-m-Y" , time() ).',';
+					fwrite($f , $log);
+					fclose($f);
+			}
+			//user nahi hai to banane ke liye naya user register kar lo
+			else {
+				mkdir("./users/".$_SESSION['username']);
+				$f = fopen("./users/".$_SESSION['username'].'/'.$_SESSION['username'].".log" , "w+");
+					$log = 'Access_time : '.date("d-m-Y", time() ).',';
+					fwrite($f , $log);
+					fclose($f);
+			}
+		}
+}
+
+
+//agar login hai to 
         if( isset($_SESSION['username']) ) {
         $usr = $_SESSION['username'];
         echo "<a href='account.php'>नमस्ते , $usr</a>&nbsp;&nbsp;";
         echo "<a href='./logout.php'>लौग आउट</a>";
     }
+//nahi to registration form dikhao
     else {
         echo "<form action='./index.php' method='POST'>
             <label for='usr'>Username</label>
@@ -50,9 +68,7 @@
     }
     ?>
     
-        <ul>
-            <!-- <li><a href=""></a></li> -->
-        </ul>
+</div>
+   
 </div>
 <hr />
-</div>

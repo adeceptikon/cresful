@@ -4,7 +4,7 @@
 
 include_once("./top.php");
 if(isset($_POST['submit'])) {
-    //prepare the entry 
+//prepare the entry 
     $entry['question']  = $_POST['question'];
     $entry['answer'] = $_POST['answer'];
     $entry['location'] = $_POST['location'];
@@ -16,13 +16,15 @@ if(isset($_POST['submit'])) {
 
     $sha = sha1($entry['question']);
     
-    //create filename
+//create filename
     $filename = './content/'.sha1($entry['question']).'.xml' ;
 
-    //check for duplicate question
+//check for duplicate question
     if(file_exists($filename)){
         echo "This question already exists";
-    } else {
+    } 
+//dupicate nahi hai to naya bana do
+	else {
         $xml = new DOMDocument('1.0', 'UTF-8');
         $root = $xml->createElement("article");
         $xml->appendChild($root);
@@ -32,8 +34,12 @@ if(isset($_POST['submit'])) {
             $root->appendChild($node);
 
         }
-        $xml -> save("$filename.xml");
-        echo "<h3>फाइल मे एंट्री हो गया </h3>";
+		
+		file_put_contents('./questions.txt' , $entry['question'] , FILE_APPEND);
+        $xml -> save("$filename");
+		
+		$confiramtion_meassage = "फाइल मे एंट्री हो गया ";
+        echo "<h3>$confiramtion_meassage</h3>";
     }
     echo "<a href='createEntry.php'>एक और सवाल डालें </a><br />";
 
