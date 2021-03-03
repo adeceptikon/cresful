@@ -1,11 +1,12 @@
-<div class="row" >
+
+<div class="row bg-warning text-white "  >
 	<div id="top" class="col">
-		<a href="./index.php"><h2>लूपर.in</h2></a>
+		<a class="text-success lead" href="./index.php"><h2>लूपर.in</h2></a>
 		<!-- <p> लूपर में आपका स्वागत है । </p> -->
 	</div>
 
 
-	<div class="col" id="searchBar" >
+	<div class="col " id="searchBar" >
 		<form method="GET" action="./index.php">
 			 <input id="search" type="search" name="search_q" />
 			 <button type="submit" name="search_button">खोजो</button>        
@@ -14,17 +15,17 @@
 </div>
 	
 	
-<div id="account" class="row">
-	<div class="col" >
+<div id="account" class="row bg-warning text-dark">
+	<div class="col-sm-8" >
 
-		<a href="./index.php">मेन पेज</a>&nbsp;
-		<a href="createEntry.php"><b style="font-size: 1.5em;">नया सवाल+</b> </a>&nbsp;
-		<a href="request.php">रिक़ुएस्ट</a>&nbsp;
-		<a href="offers.php">ऑफर</a>&nbsp;
+		<a class="text-secondary" href="./index.php">मेन पेज</a>&nbsp;
+		<a class="text-secondary" href="createEntry.php"><b style="font-size: 1.5em;">नया सवाल+</b> </a>&nbsp;
+		<a class="text-secondary" href="request.php">रिक़ुएस्ट</a>&nbsp;
+		<a class="text-secondary" href="offers.php">ऑफर</a>&nbsp;
 	</div>
 
     
-<div class="col" >
+<div class="col-sm-4" >
 
     <?php 
 //agar login info daala hai to

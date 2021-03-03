@@ -2,6 +2,8 @@
 ?>
 <!DOCTYPE html>
 <meta charset="UTF-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <head>
    <!-- Latest compiled and minified CSS -->
@@ -19,7 +21,7 @@
 </head>
 
 <body>
-<div class="container">
+<div class="container-fluid">
 <?php 
 
 include_once("./top.php"); 

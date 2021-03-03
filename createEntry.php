@@ -3,6 +3,8 @@
 
 <!DOCTYPE html>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <head>
 <!-- Latest compiled and minified CSS -->
@@ -16,9 +18,27 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    textarea{
+        width: 100%;
+        height: 30rem;
+    }
+    
+    #sawaal{
+        height:3rem;
+        border: 1px solid rgb(20 , 30 ,140);
+        border-radius: 5pt;
+
+    }
+    #jawaab{
+        border: 1px solid rgb(20 , 130 ,40);
+        border-radius: 5pt;
+
+    }
+</style>
 </head>
 <body>
-<div class="container" >
+<div class="container-fluid" >
 
 <?php include_once("./top.php")?>
 
@@ -31,7 +51,7 @@ echo  '<form method="POST" action="processEntry.php">
     <h2>यहां सवाल  और जवाब दोनो एंट्री कीजिये</h2>
 
     <label for="question">सवाल (question) *</label><br />
-    <textarea type="text" name="question" placeholder="सवाल" id="question"></textarea><br /><br />
+    <textarea id="sawaal" type="text" name="question" placeholder="सवाल" id="question"></textarea><br /><br />
 
     <label for="context">विवरण (context) </label><br />
     <input type="text" name="context" placeholder="विवरण"/><br /><br />
@@ -43,7 +63,7 @@ echo  '<form method="POST" action="processEntry.php">
 
     <!-- <input type="text" placeholder="जवाब" /><br /> -->
     <label for="answer">जवाब(Answer) *</label><br />
-    <textarea placeholder="जवाब" name="answer" id="answer"></textarea><br /><br />
+    <textarea id="jawaab" placeholder="जवाब" name="answer" id="answer"></textarea><br /><br />
 
     <label for="user">User * </label><br />
     <input placeholder="user" name="user"  value="'.$usr.'" /><br /><br />
