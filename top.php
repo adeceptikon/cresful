@@ -61,8 +61,8 @@ if(isset($_POST['submitUsername']) ) {
 //nahi to registration form dikhao
     else {
         echo "<form action='./index.php' method='POST'>
-            <label for='usr'>Username</label>
-            <input type='text' name='username' />
+            <label for='usr'></label>
+            <input type='text' placeholder='नाम' name='username' />
             <button type='submit' name='submitUsername'>लौग इन</button>
             </form>
                 ";
