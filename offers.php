@@ -4,42 +4,51 @@ session_start();
 
 
 <!DOCTYPE html>
+<html>
 <meta charset="UTF-8" >
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <div class="container-fluid" >
     <?php include_once("./top.php");
     ?>
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
 
-<form action="./offers.php">
-        <label for="offer">Create your offer</label>
-        <textarea name="offer"></textarea><br /><br />
-        <label for="username" >Username</label>
-        <input type="text" value="<?php if(isset($_SESSION['username'])) echo $_SESSION['username'];?>" /><br /><br />
-        <label for="bountyAmount">Bounty </label>
-        <input type="number" name="bountyAmount" /><br /><br />
-        <button type="submit" name="offerSubmit">submit</button>
-</form>
+                <form action="./offers.php">
+                        <label for="offer">Create your offer</label>
+                        <textarea name="offer"></textarea><br /><br />
+                        <label for="username" >Username</label>
+                        <input type="text" value="<?php if(isset($_SESSION['username'])) echo $_SESSION['username'];?>" /><br /><br />
+                        <label for="bountyAmount">Bounty </label>
+                        <input type="number" name="bountyAmount" /><br /><br />
+                        <button type="submit" name="offerSubmit">submit</button>
+                </form>
 
-<?php
+                <?php
 
-        $xml = simplexml_load_file("./others/offers.xml");
-        echo $xml;        
-?>
+                        $xml = simplexml_load_file("./others/offers.xml");
+                        echo $xml;        
+                ?>
+        </div>
+        <div class="col-sm-2">                
+        </div>
+    </div>
 </div>
 </body>
-
+</html>
